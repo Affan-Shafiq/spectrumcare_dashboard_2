@@ -1,0 +1,21 @@
+# Dependencies (installed fresh inside Docker)
+node_modules/
+
+# Secrets — NEVER copy into image
+.env
+serviceAccountKey.json
+*.json.bak
+
+# Dev tools
+nodemon*
+npm-debug.log*
+*.log
+logs/
+
+# Git
+.git
+.gitignore
+
+# Docs
+README.md
+docs/
