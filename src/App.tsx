@@ -5,7 +5,6 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate, useNavigate, useLocation } from "react-router-dom";
 import { LoginPage } from "./pages/LoginPage";
-import { DashboardHome } from "./pages/DashboardHome";
 import { UserActivityPage } from "./pages/UserActivityPage";
 import { MLReportsPage } from "./pages/MLReportsPage";
 import { CommunityModerationPage } from "./pages/CommunityModerationPage";
@@ -39,8 +38,7 @@ const AppContent = () => {
           // Token expired or invalid, clear it
           await logout();
           setIsAuth(false);
-          if (location.pathname.startsWith('/dashboard') || 
-              location.pathname.startsWith('/user-activity') ||
+          if (location.pathname.startsWith('/user-activity') ||
               location.pathname.startsWith('/ml-reports') ||
               location.pathname.startsWith('/community') ||
               location.pathname.startsWith('/content') ||
@@ -71,8 +69,8 @@ const AppContent = () => {
 
   const handleLogin = () => {
     setIsAuth(true);
-    // Navigate to dashboard after login
-    navigate('/dashboard', { replace: true });
+    // Navigate to ML reports after login
+    navigate('/ml-reports', { replace: true });
   };
 
   const handleLogout = async () => {
@@ -111,14 +109,13 @@ const AppContent = () => {
       ) : (
         <AdminLayout onLogout={handleLogout}>
           <Routes>
-            <Route path="/" element={<Navigate to="/dashboard" replace />} />
-            <Route path="/dashboard" element={<DashboardHome />} />
+            <Route path="/" element={<Navigate to="/ml-reports" replace />} />
             <Route path="/user-activity" element={<UserActivityPage />} />
             <Route path="/ml-reports" element={<MLReportsPage />} />
             <Route path="/community" element={<CommunityModerationPage />} />
             <Route path="/content" element={<ContentManagementPage />} />
             <Route path="/therapists" element={<TherapistVerificationPage />} />
-            <Route path="*" element={<Navigate to="/dashboard" replace />} />
+            <Route path="*" element={<Navigate to="/ml-reports" replace />} />
           </Routes>
         </AdminLayout>
       )}

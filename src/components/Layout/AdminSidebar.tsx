@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import {
-  LayoutDashboard,
   Users,
   Brain,
   MessageSquare,
@@ -20,11 +19,6 @@ interface SidebarProps {
 }
 
 const sidebarItems = [
-  {
-    title: "Dashboard",
-    href: "/dashboard",
-    icon: LayoutDashboard
-  },
   {
     title: "User Activity",
     href: "/user-activity",
