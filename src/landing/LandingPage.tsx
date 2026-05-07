@@ -49,8 +49,7 @@ export const LandingPage = () => {
                 </p>
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                   <a 
-                    href="/SpectrumCare.apk" 
-                    download 
+                    href="https://github.com/Affan-Shafiq/spectrumcare_dashboard_2/releases/download/v1.0.0/SpectrumCare.apk" 
                     className="h-14 px-10 bg-white text-[#355070] hover:bg-gray-50 text-base font-bold rounded-full shadow-2xl transition-all hover:scale-105 active:scale-95 flex items-center justify-center"
                   >
                     Get the App
