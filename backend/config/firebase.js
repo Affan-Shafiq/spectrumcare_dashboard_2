@@ -10,18 +10,37 @@ const initializeFirebase = () => {
             let credential;
 
             if (process.env.FIREBASE_SERVICE_ACCOUNT_JSON) {
-                // Production / Docker / Railway: credentials passed as JSON string env var
-                const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT_JSON);
+                // Production / Docker / Railway
+                console.log('🔑 Firebase: reading FIREBASE_SERVICE_ACCOUNT_JSON env var...');
+                let serviceAccount;
+                try {
+                    serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT_JSON);
+                } catch (parseErr) {
+                    throw new Error(
+                        'FIREBASE_SERVICE_ACCOUNT_JSON is set but is not valid JSON. ' +
+                        'Make sure you pasted the entire JSON file as a single-line string. ' +
+                        'Parse error: ' + parseErr.message
+                    );
+                }
                 credential = admin.credential.cert(serviceAccount);
-                console.log('🔑 Firebase: using FIREBASE_SERVICE_ACCOUNT_JSON env var');
+                console.log('🔑 Firebase: credential loaded from env var ✅');
             } else {
-                // Local development: fall back to serviceAccountKey.json file
-                const serviceAccountPath = path.join(
-                    __dirname, '..', process.env.FIREBASE_SERVICE_ACCOUNT_PATH || './serviceAccountKey.json'
+                // Local development fallback — key file must exist
+                const keyPath = path.join(
+                    __dirname, '..', './serviceAccountKey.json'
                 );
-                const serviceAccount = require(serviceAccountPath);
+                console.log('🔑 Firebase: no FIREBASE_SERVICE_ACCOUNT_JSON set, trying file:', keyPath);
+                const fs = require('fs');
+                if (!fs.existsSync(keyPath)) {
+                    throw new Error(
+                        'Firebase credentials not found.\n' +
+                        '  • In production/Railway: set the FIREBASE_SERVICE_ACCOUNT_JSON environment variable.\n' +
+                        '  • In local dev: place serviceAccountKey.json in the backend/ folder.'
+                    );
+                }
+                const serviceAccount = require(keyPath);
                 credential = admin.credential.cert(serviceAccount);
-                console.log('🔑 Firebase: using local serviceAccountKey.json file');
+                console.log('🔑 Firebase: credential loaded from file ✅');
             }
 
             admin.initializeApp({ credential });
