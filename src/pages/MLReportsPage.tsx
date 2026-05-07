@@ -5,7 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { getMLStats, getRecentMLResults, MLStats, ScreeningResult } from "@/services/mlService";
 import { useToast } from "@/hooks/use-toast";
-import { Brain, Download, RefreshCw, TrendingUp, CheckCircle, Info } from "lucide-react";
+import { Brain, RefreshCw, TrendingUp, CheckCircle, Info } from "lucide-react";
 
 export const MLReportsPage = () => {
   const [stats, setStats] = useState<MLStats | null>(null);
@@ -76,10 +76,6 @@ export const MLReportsPage = () => {
           <Button variant="outline" className="gap-2" onClick={loadData}>
             <RefreshCw className="h-4 w-4" />
             Refresh Data
-          </Button>
-          <Button variant="spectrum" className="gap-2">
-            <Download className="h-4 w-4" />
-            Export Report
           </Button>
         </div>
       </div>
