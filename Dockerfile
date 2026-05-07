@@ -32,12 +32,13 @@ RUN npm run build
 # ---- Stage 2: Serve with nginx ----
 FROM nginx:alpine AS production
 
+# Only substitute ${PORT} — leave nginx's own $uri, $host etc. untouched
+ENV NGINX_ENVSUBST_TEMPLATE_VARS=PORT
+
 # Copy built static files
 COPY --from=builder /app/dist /usr/share/nginx/html
 
-# Copy nginx config (SPA routing support)
-COPY nginx.conf /etc/nginx/conf.d/default.conf
-
-EXPOSE 80
+# Copy as a template — nginx will substitute ${PORT} at container startup
+COPY nginx.conf /etc/nginx/templates/default.conf.template
 
 CMD ["nginx", "-g", "daemon off;"]
