@@ -1,0 +1,28 @@
+# Dependencies — reinstalled inside Docker
+node_modules/
+**/node_modules/
+
+# Build output — rebuilt inside Docker
+dist/
+
+# Backend folder — not needed in frontend image
+backend/
+
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Git
+.git/
+.gitignore
+.gitattributes
+
+# Docs
+README.md
+DOCUMENTATION.md
+requirements.md
+
+# Editor
+.vscode/
+.idea/
