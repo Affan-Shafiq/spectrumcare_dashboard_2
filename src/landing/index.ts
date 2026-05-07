@@ -1,0 +1,15 @@
+export { LandingPage } from "./LandingPage";
+export { Navbar } from "./Navbar";
+export { Hero } from "./Hero";
+export { Features } from "./Features";
+export { Footer } from "./Footer";
+export { WhySpectrumCare } from "./WhySpectrumCare";
+export { Problem } from "./Problem";
+export { Solution } from "./Solution";
+export { Games } from "./Games";
+export { HowItWorks } from "./HowItWorks";
+export { Credibility } from "./Credibility";
+export { TargetUsers } from "./TargetUsers";
+export { Community } from "./Community";
+export { BusinessModel } from "./BusinessModel";
+export { TopBanner } from "./TopBanner";
