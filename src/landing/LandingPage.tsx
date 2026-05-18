@@ -48,14 +48,14 @@ export const LandingPage = () => {
                   Join thousands of families already using SpectrumCare to support their child's growth and development.
                 </p>
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                  <a 
-                    href="https://github.com/Affan-Shafiq/spectrumcare_dashboard_2/releases/download/v1.0.0/SpectrumCare.apk" 
+                  <a
+                    href="https://github.com/Affan-Shafiq/spectrumcare_dashboard_2/releases/download/v1.0.0/SpectrumCare_V_1.1.0.apk"
                     className="h-14 px-10 bg-white text-[#355070] hover:bg-gray-50 text-base font-bold rounded-full shadow-2xl transition-all hover:scale-105 active:scale-95 flex items-center justify-center"
                   >
                     Get the App
                   </a>
-                  <a 
-                    href="mailto:spectrumcare.app@gmail.com" 
+                  <a
+                    href="mailto:spectrumcare.app@gmail.com"
                     className="h-14 px-10 border-2 border-white text-white hover:bg-white/10 text-base font-bold rounded-full transition-all hover:scale-105 active:scale-95 flex items-center justify-center"
                   >
                     Contact Us
