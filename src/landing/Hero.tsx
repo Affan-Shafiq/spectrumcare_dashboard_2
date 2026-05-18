@@ -23,8 +23,8 @@ export const Hero = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 mt-2">
-              <a 
-                href="https://github.com/Affan-Shafiq/spectrumcare_dashboard_2/releases/download/v1.0.0/SpectrumCare.apk" 
+              <a
+                href="https://github.com/Affan-Shafiq/spectrumcare_dashboard_2/releases/download/v1.0.0/SpectrumCare_V_1.1.0.apk"
                 className="h-14 px-8 rounded-full text-white text-base font-bold shadow-lg transition-all hover:shadow-xl hover:scale-105 active:scale-95 flex items-center gap-2"
                 style={{ backgroundColor: '#355070' }}
               >
