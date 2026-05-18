@@ -40,7 +40,7 @@ COPY --from=builder /app/dist /usr/share/nginx/html
 
 # Explicitly copy APK — large binary bypasses Vite's public/ pipeline
 # This guarantees the file lands in nginx even if the Vite step times out
-COPY --from=builder /app/public/SpectrumCare.apk /usr/share/nginx/html/SpectrumCare.apk
+COPY --from=builder /app/public/SpectrumCare_V_1.1.0.apk /usr/share/nginx/html/SpectrumCare_V_1.1.0.apk
 
 # Copy as a template — nginx will substitute ${PORT} at container startup
 COPY nginx.conf /etc/nginx/templates/default.conf.template
