@@ -116,7 +116,7 @@ const getMLStats = async (req, res) => {
                 totalEvaluated: totalJoined,
                 lastUpdated: latestPred?.timestamp?.toDate?.() || new Date(),
                 modelVersion: latestPred?.modelVersion || 'v1.0.0',
-                modelType: 'Logistic Regression'
+                modelType: 'XGBoost Classifier'
             },
             confusionMatrix: { tp, tn, fp, fn }
         });
